@@ -1,12 +1,12 @@
 /* ==========================================
-   Sメ PANEL — LOGIN SYSTEM
+   Sメ PANEL — STABLE CORE
 ========================================== */
 
 const USERNAME = "SAHIL";
 const PASSWORD = "123456";
 
 
-/* PASSWORD TOGGLE */
+/* PASSWORD */
 
 function togglePassword() {
 
@@ -43,37 +43,52 @@ function togglePassword() {
 function login() {
 
     const username =
-        document.getElementById("username").value.trim();
+        document.getElementById("username");
 
     const password =
-        document.getElementById("password").value;
+        document.getElementById("password");
 
     const message =
         document.getElementById("loginMessage");
 
+    if (!username || !password) return;
 
-    if (!username || !password) {
 
-        message.textContent =
-            "⚠ ENTER USERNAME & PASSWORD";
+    const user =
+        username.value.trim();
 
-        message.style.color =
-            "#ffb84d";
+    const pass =
+        password.value;
+
+
+    if (!user || !pass) {
+
+        if (message) {
+
+            message.textContent =
+                "⚠ ENTER USERNAME & PASSWORD";
+
+            message.style.color =
+                "#ffb84d";
+        }
 
         return;
     }
 
 
     if (
-        username === USERNAME &&
-        password === PASSWORD
+        user === USERNAME &&
+        pass === PASSWORD
     ) {
 
-        message.textContent =
-            "✓ ACCESS GRANTED";
+        if (message) {
 
-        message.style.color =
-            "#48ff9b";
+            message.textContent =
+                "✓ ACCESS GRANTED";
+
+            message.style.color =
+                "#48ff9b";
+        }
 
 
         sessionStorage.setItem(
@@ -83,53 +98,43 @@ function login() {
 
         sessionStorage.setItem(
             "sPanelUser",
-            username
+            user
         );
 
 
         const loader =
-    document.getElementById("accessLoader");
+            document.getElementById(
+                "accessLoader"
+            );
 
-if (loader) {
-    loader.classList.add("show");
-}
 
-setTimeout(function() {
+        if (loader) {
 
-    window.location.href =
-        "sensitivity.html";
+            loader.classList.add("show");
 
-}, 1400);
+            setTimeout(function() {
 
+                window.location.href =
+                    "sensitivity.html";
+
+            }, 1400);
+
+        } else {
+
+            window.location.href =
+                "sensitivity.html";
+
+        }
 
     } else {
 
-        message.textContent =
-            "✕ ACCESS DENIED";
+        if (message) {
 
-        message.style.color =
-            "#ff1738";
+            message.textContent =
+                "✕ ACCESS DENIED";
 
-
-        const card =
-            document.querySelector(".login-card");
-
-        if (card) {
-
-            card.animate(
-                [
-                    { transform: "translateX(0)" },
-                    { transform: "translateX(-8px)" },
-                    { transform: "translateX(8px)" },
-                    { transform: "translateX(-5px)" },
-                    { transform: "translateX(5px)" },
-                    { transform: "translateX(0)" }
-                ],
-                {
-                    duration: 350
-                }
-            );
-
+            message.style.color =
+                "#ff1738";
         }
 
     }
@@ -137,26 +142,7 @@ setTimeout(function() {
 }
 
 
-/* ENTER KEY */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Enter" &&
-            document.getElementById("username")
-        ) {
-
-            login();
-
-        }
-
-    }
-);
-/* ==========================================
-   SENSITIVITY CONTROLS
-========================================== */
+/* SENSITIVITY */
 
 function updateValue(id) {
 
@@ -187,28 +173,30 @@ function updateValue(id) {
 }
 
 
-/* SAVE */
-
 function saveSensitivity() {
 
-    const settings = {
+    const ids = [
+        "general",
+        "redDot",
+        "scope2",
+        "scope4",
+        "sniper"
+    ];
 
-        general:
-            document.getElementById("general").value,
+    const settings = {};
 
-        redDot:
-            document.getElementById("redDot").value,
+    ids.forEach(function(id) {
 
-        scope2:
-            document.getElementById("scope2").value,
+        const slider =
+            document.getElementById(id);
 
-        scope4:
-            document.getElementById("scope4").value,
+        if (slider) {
+            settings[id] =
+                slider.value;
+        }
 
-        sniper:
-            document.getElementById("sniper").value
+    });
 
-    };
 
     localStorage.setItem(
         "sPanelSensitivity",
@@ -217,7 +205,9 @@ function saveSensitivity() {
 
 
     const message =
-        document.getElementById("saveMessage");
+        document.getElementById(
+            "saveMessage"
+        );
 
     if (message) {
 
@@ -226,13 +216,10 @@ function saveSensitivity() {
 
         message.style.color =
             "#48ff9b";
-
     }
 
 }
 
-
-/* RESET */
 
 function resetSensitivity() {
 
@@ -247,19 +234,23 @@ function resetSensitivity() {
     };
 
 
-    Object.keys(defaults).forEach(function(id) {
+    Object.keys(defaults).forEach(
+        function(id) {
 
-        const slider =
-            document.getElementById(id);
+            const slider =
+                document.getElementById(id);
 
-        if (!slider) return;
+            if (slider) {
 
-        slider.value =
-            defaults[id];
+                slider.value =
+                    defaults[id];
 
-        updateValue(id);
+                updateValue(id);
 
-    });
+            }
+
+        }
+    );
 
 
     localStorage.removeItem(
@@ -268,7 +259,9 @@ function resetSensitivity() {
 
 
     const message =
-        document.getElementById("saveMessage");
+        document.getElementById(
+            "saveMessage"
+        );
 
     if (message) {
 
@@ -277,181 +270,54 @@ function resetSensitivity() {
 
         message.style.color =
             "#ff1738";
-
     }
 
 }
 
 
-/* LOAD SAVED SETTINGS */
+/* FEATURE */
 
-function loadSensitivity() {
-
-    const saved =
-        localStorage.getItem(
-            "sPanelSensitivity"
-        );
-
-    if (!saved) {
-
-        [
-            "general",
-            "redDot",
-            "scope2",
-            "scope4",
-            "sniper"
-        ].forEach(updateValue);
-
-        return;
-    }
-
-
-    try {
-
-        const settings =
-            JSON.parse(saved);
-
-
-        Object.keys(settings).forEach(function(id) {
-
-            const slider =
-                document.getElementById(id);
-
-            if (slider) {
-
-                slider.value =
-                    settings[id];
-
-                updateValue(id);
-
-            }
-
-        });
-
-    } catch (error) {
-
-        localStorage.removeItem(
-            "sPanelSensitivity"
-        );
-
-    }
-
-}
-
-
-/* PAGE LOAD */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        if (
-            document.getElementById("general")
-        ) {
-
-            loadSensitivity();
-
-        }
-
-    }
-);
-/* ==========================================
-   Sメ PANEL — FEATURE INTERACTION
-========================================== */
-
-function featureInfo(feature) {
-
-    const card =
-        event.currentTarget;
+function featureInfo(feature, card) {
 
     if (card) {
-
         card.classList.toggle("active");
-
     }
-
-    const messages = {
-
-        "UMP RECOIL":
-            "UMP RECOIL\n\nPractice controlled recoil management and comfortable sensitivity.",
-
-        "HEADSHOT":
-            "HEADSHOT\n\nUse your sensitivity as a starting point and practice in training mode.",
-
-        "AIM FOV":
-            "AIM FOV\n\nChoose a comfortable field of view for your display.",
-
-        "DRAG HEADSHOT":
-            "DRAG HEADSHOT\n\nPractice smooth upward drag movement and consistent timing.",
-
-        "ONE TAP":
-            "ONE TAP\n\nPractice short and controlled aim movements.",
-
-        "RED NUMBER":
-            "RED NUMBER\n\nTraining and display information for your setup.",
-
-        "STABLE PIN":
-            "STABLE PIN\n\nPractice stable positioning and controlled aim movement."
-
-    };
-
 
     alert(
         "Sメ PANEL\n\n" +
-        (messages[feature] ||
-        "Feature information unavailable.")
+        feature +
+        "\n\nTraining / configuration module ready."
     );
 
 }
 
-}
-/* ==========================================
-   Sメ PANEL — LOGOUT
-========================================== */
+
+/* LOGOUT */
 
 function logoutPanel() {
 
-    sessionStorage.removeItem("sPanelAccess");
-    sessionStorage.removeItem("sPanelUser");
+    sessionStorage.removeItem(
+        "sPanelAccess"
+    );
 
-    window.location.href = "index.html";
+    sessionStorage.removeItem(
+        "sPanelUser"
+    );
+
+    window.location.href =
+        "index.html";
 
 }
 
 
-/* SHOW USERNAME */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        const user =
-            sessionStorage.getItem("sPanelUser");
-
-        const profile =
-            document.getElementById(
-                "profileUsername"
-            );
-
-        if (user && profile) {
-
-            profile.textContent = user;
-
-        }
-
-    }
-);
-/* ==========================================
-   Sメ PANEL — PAGE PROTECTION
-========================================== */
+/* PAGE PROTECTION */
 
 function checkPanelAccess() {
 
-    const access =
-        sessionStorage.getItem("sPanelAccess");
-
-    const currentPage =
-        window.location.pathname.split("/").pop();
+    const page =
+        window.location.pathname
+        .split("/")
+        .pop();
 
     const protectedPages = [
         "sensitivity.html",
@@ -459,8 +325,14 @@ function checkPanelAccess() {
         "profile.html"
     ];
 
+    const access =
+        sessionStorage.getItem(
+            "sPanelAccess"
+        );
+
+
     if (
-        protectedPages.includes(currentPage) &&
+        protectedPages.includes(page) &&
         access !== "granted"
     ) {
 
@@ -468,20 +340,64 @@ function checkPanelAccess() {
             "index.html"
         );
 
-        return false;
     }
 
-    return true;
 }
 
 
-/* RUN PROTECTION */
+/* PROFILE USER */
+
+function loadProfileUser() {
+
+    const user =
+        sessionStorage.getItem(
+            "sPanelUser"
+        );
+
+    const profile =
+        document.getElementById(
+            "profileUsername"
+        );
+
+    if (user && profile) {
+
+        profile.textContent =
+            user;
+
+    }
+
+}
+
+
+/* PAGE START */
 
 document.addEventListener(
     "DOMContentLoaded",
     function() {
 
         checkPanelAccess();
+
+        loadProfileUser();
+
+
+        const sliders = [
+            "general",
+            "redDot",
+            "scope2",
+            "scope4",
+            "sniper"
+        ];
+
+        sliders.forEach(function(id) {
+
+            const slider =
+                document.getElementById(id);
+
+            if (slider) {
+                updateValue(id);
+            }
+
+        });
 
     }
 );
