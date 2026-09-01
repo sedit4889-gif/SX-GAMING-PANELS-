@@ -5,41 +5,15 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Sメ PANEL — Sensitivity</title>
 
     <link rel="stylesheet" href="style.css">
 
 </head>
-<!-- Sメ PANEL NAVIGATION -->
 
-<nav class="bottom-nav">
-
-    <a href="sensitivity.html">
-        <span>◈</span>
-        SENSITIVITY
-    </a>
-
-    <a href="features.html">
-        <span>◆</span>
-        FEATURES
-    </a>
-
-    <a href="profile.html">
-        <span>◎</span>
-        SYSTEM
-    </a>
-
-    <a href="index.html">
-        <span>⌂</span>
-        LOGIN
-    </a>
-
-</nav>
 <body>
 
     <div class="grid-background"></div>
@@ -47,11 +21,15 @@
     <div class="red-glow glow-one"></div>
     <div class="red-glow glow-two"></div>
 
+    <div class="scan-effect"></div>
+
+
+    <!-- HEADER -->
 
     <header class="login-top">
 
         <div class="mini-logo">
-            Sメ PANEL
+            Sメ
         </div>
 
         <div class="system-status">
@@ -65,12 +43,15 @@
     </header>
 
 
-    <main class="panel-page">
+    <main class="sensitivity-page">
+
+
+        <!-- TITLE -->
 
         <div class="page-heading">
 
             <span>
-                Sメ CONTROL
+                Sメ CONTROL SYSTEM
             </span>
 
             <h1>
@@ -78,158 +59,199 @@
             </h1>
 
             <p>
-                Configure your preferred control values
+                Configure your training settings
             </p>
 
         </div>
 
 
-        <section class="sensitivity-card">
+        <!-- STATUS -->
 
-            <div class="setting">
+        <div class="module-status">
 
-                <div class="setting-top">
+            <span class="online-dot"></span>
 
-                    <span>
+            CONFIGURATION READY
+
+        </div>
+
+
+        <!-- SETTINGS -->
+
+        <section class="settings-card">
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <strong>
                         GENERAL
-                    </span>
-
-                    <strong id="generalValue">
-                        95
                     </strong>
+
+                    <span>
+                        Overall sensitivity
+                    </span>
 
                 </div>
 
-                <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value="95"
-                    id="general"
-                    oninput="updateValue('general')"
-                >
+                <div class="setting-value"
+                     id="generalValue">
+                    95
+                </div>
 
             </div>
 
+            <input
+                type="range"
+                id="general"
+                min="0"
+                max="100"
+                value="95"
+                oninput="updateValue('general')"
+            >
 
-            <div class="setting">
 
-                <div class="setting-top">
+            <div class="setting-row">
 
-                    <span>
+                <div class="setting-info">
+
+                    <strong>
                         RED DOT
-                    </span>
-
-                    <strong id="redDotValue">
-                        90
                     </strong>
+
+                    <span>
+                        Close range control
+                    </span>
 
                 </div>
 
-                <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value="90"
-                    id="redDot"
-                    oninput="updateValue('redDot')"
-                >
+                <div class="setting-value"
+                     id="redDotValue">
+                    90
+                </div>
 
             </div>
 
+            <input
+                type="range"
+                id="redDot"
+                min="0"
+                max="100"
+                value="90"
+                oninput="updateValue('redDot')"
+            >
 
-            <div class="setting">
 
-                <div class="setting-top">
+            <div class="setting-row">
 
-                    <span>
+                <div class="setting-info">
+
+                    <strong>
                         2× SCOPE
-                    </span>
-
-                    <strong id="scope2Value">
-                        85
                     </strong>
+
+                    <span>
+                        Mid range control
+                    </span>
 
                 </div>
 
-                <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value="85"
-                    id="scope2"
-                    oninput="updateValue('scope2')"
-                >
+                <div class="setting-value"
+                     id="scope2Value">
+                    85
+                </div>
 
             </div>
 
+            <input
+                type="range"
+                id="scope2"
+                min="0"
+                max="100"
+                value="85"
+                oninput="updateValue('scope2')"
+            >
 
-            <div class="setting">
 
-                <div class="setting-top">
+            <div class="setting-row">
 
-                    <span>
+                <div class="setting-info">
+
+                    <strong>
                         4× SCOPE
-                    </span>
-
-                    <strong id="scope4Value">
-                        80
                     </strong>
-
-                </div>
-
-                <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value="80"
-                    id="scope4"
-                    oninput="updateValue('scope4')"
-                >
-
-            </div>
-
-
-            <div class="setting">
-
-                <div class="setting-top">
 
                     <span>
-                        SNIPER
+                        Long range control
                     </span>
-
-                    <strong id="sniperValue">
-                        70
-                    </strong>
 
                 </div>
 
-                <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value="70"
-                    id="sniper"
-                    oninput="updateValue('sniper')"
-                >
+                <div class="setting-value"
+                     id="scope4Value">
+                    80
+                </div>
 
             </div>
 
+            <input
+                type="range"
+                id="scope4"
+                min="0"
+                max="100"
+                value="80"
+                oninput="updateValue('scope4')"
+            >
 
-            <div class="button-row">
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <strong>
+                        SNIPER
+                    </strong>
+
+                    <span>
+                        Precision control
+                    </span>
+
+                </div>
+
+                <div class="setting-value"
+                     id="sniperValue">
+                    70
+                </div>
+
+            </div>
+
+            <input
+                type="range"
+                id="sniper"
+                min="0"
+                max="100"
+                value="70"
+                oninput="updateValue('sniper')"
+            >
+
+
+            <!-- BUTTONS -->
+
+            <div class="settings-actions">
 
                 <button
-                    class="secondary-button"
-                    onclick="resetSensitivity()"
-                >
-                    RESET
-                </button>
-
-                <button
-                    class="access-button"
+                    class="save-settings"
                     onclick="saveSensitivity()"
                 >
                     SAVE SETTINGS
+                </button>
+
+                <button
+                    class="reset-settings"
+                    onclick="resetSensitivity()"
+                >
+                    RESET
                 </button>
 
             </div>
@@ -237,23 +259,65 @@
 
             <div
                 id="saveMessage"
-                class="login-message"
-            ></div>
+                class="save-message"
+            >
+                SETTINGS READY
+            </div>
+
 
         </section>
 
 
-        <div class="creator">
+        <!-- NAVIGATION -->
+
+        <nav class="bottom-nav">
+
+            <a
+                href="sensitivity.html"
+                class="active"
+            >
+                <span>◈</span>
+                SENSITIVITY
+            </a>
+
+            <a href="features.html">
+
+                <span>◆</span>
+                FEATURES
+
+            </a>
+
+            <a href="profile.html">
+
+                <span>◎</span>
+                SYSTEM
+
+            </a>
+
+            <a href="index.html">
+
+                <span>⌂</span>
+                LOGIN
+
+            </a>
+
+        </nav>
+
+
+        <!-- CREATOR -->
+
+        <div class="creator profile-creator">
 
             <small>
                 CREATED BY
             </small>
 
             <strong>
-                @be.like_sahil
+                @be.like_sshil
             </strong>
 
         </div>
+
 
     </main>
 
