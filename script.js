@@ -147,3 +147,204 @@ document.addEventListener(
 
     }
 );
+/* ==========================================
+   SENSITIVITY CONTROLS
+========================================== */
+
+function updateValue(id) {
+
+    const slider =
+        document.getElementById(id);
+
+    const value =
+        document.getElementById(
+            id + "Value"
+        );
+
+    if (!slider || !value) return;
+
+    value.textContent =
+        slider.value;
+
+    const percentage =
+        slider.value + "%";
+
+    slider.style.background =
+        `linear-gradient(
+            90deg,
+            var(--red) 0%,
+            var(--red) ${percentage},
+            #242428 ${percentage},
+            #242428 100%
+        )`;
+}
+
+
+/* SAVE */
+
+function saveSensitivity() {
+
+    const settings = {
+
+        general:
+            document.getElementById("general").value,
+
+        redDot:
+            document.getElementById("redDot").value,
+
+        scope2:
+            document.getElementById("scope2").value,
+
+        scope4:
+            document.getElementById("scope4").value,
+
+        sniper:
+            document.getElementById("sniper").value
+
+    };
+
+    localStorage.setItem(
+        "sPanelSensitivity",
+        JSON.stringify(settings)
+    );
+
+
+    const message =
+        document.getElementById("saveMessage");
+
+    if (message) {
+
+        message.textContent =
+            "✓ SETTINGS SAVED";
+
+        message.style.color =
+            "#48ff9b";
+
+    }
+
+}
+
+
+/* RESET */
+
+function resetSensitivity() {
+
+    const defaults = {
+
+        general: 95,
+        redDot: 90,
+        scope2: 85,
+        scope4: 80,
+        sniper: 70
+
+    };
+
+
+    Object.keys(defaults).forEach(function(id) {
+
+        const slider =
+            document.getElementById(id);
+
+        if (!slider) return;
+
+        slider.value =
+            defaults[id];
+
+        updateValue(id);
+
+    });
+
+
+    localStorage.removeItem(
+        "sPanelSensitivity"
+    );
+
+
+    const message =
+        document.getElementById("saveMessage");
+
+    if (message) {
+
+        message.textContent =
+            "↻ SETTINGS RESET";
+
+        message.style.color =
+            "#ff1738";
+
+    }
+
+}
+
+
+/* LOAD SAVED SETTINGS */
+
+function loadSensitivity() {
+
+    const saved =
+        localStorage.getItem(
+            "sPanelSensitivity"
+        );
+
+    if (!saved) {
+
+        [
+            "general",
+            "redDot",
+            "scope2",
+            "scope4",
+            "sniper"
+        ].forEach(updateValue);
+
+        return;
+    }
+
+
+    try {
+
+        const settings =
+            JSON.parse(saved);
+
+
+        Object.keys(settings).forEach(function(id) {
+
+            const slider =
+                document.getElementById(id);
+
+            if (slider) {
+
+                slider.value =
+                    settings[id];
+
+                updateValue(id);
+
+            }
+
+        });
+
+    } catch (error) {
+
+        localStorage.removeItem(
+            "sPanelSensitivity"
+        );
+
+    }
+
+}
+
+
+/* PAGE LOAD */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        if (
+            document.getElementById("general")
+        ) {
+
+            loadSensitivity();
+
+        }
+
+    }
+);
