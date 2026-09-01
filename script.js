@@ -391,3 +391,39 @@ function featureInfo(feature) {
     );
 
 }
+/* ==========================================
+   Sメ PANEL — LOGOUT
+========================================== */
+
+function logoutPanel() {
+
+    sessionStorage.removeItem("sPanelAccess");
+    sessionStorage.removeItem("sPanelUser");
+
+    window.location.href = "index.html";
+
+}
+
+
+/* SHOW USERNAME */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const user =
+            sessionStorage.getItem("sPanelUser");
+
+        const profile =
+            document.getElementById(
+                "profileUsername"
+            );
+
+        if (user && profile) {
+
+            profile.textContent = user;
+
+        }
+
+    }
+);
