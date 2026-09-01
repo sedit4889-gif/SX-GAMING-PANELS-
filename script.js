@@ -401,3 +401,9 @@ document.addEventListener(
 
     }
 );
+function openFreeFireMax() {
+
+    window.location.href =
+        "freefiremax://";
+
+}
