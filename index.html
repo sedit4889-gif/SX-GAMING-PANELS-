@@ -1,1 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sメ PANEL — Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="login-page">
+
+    <!-- BACKGROUND EFFECTS -->
+
+    <div class="red-glow glow-one"></div>
+    <div class="red-glow glow-two"></div>
+
+    <div class="grid-background"></div>
+
+    <div class="scan-effect"></div>
+
+
+    <!-- TOP BRAND -->
+
+    <header class="login-top">
+
+        <div class="mini-logo">
+            Sメ
+        </div>
+
+        <div class="system-status">
+
+            <span class="online-dot"></span>
+
+            SYSTEM ONLINE
+
+        </div>
+
+    </header>
+
+
+    <!-- LOGIN AREA -->
+
+    <main class="login-container">
+
+
+        <!-- BRAND SIDE -->
+
+        <section class="brand-area">
+
+            <div class="logo-frame">
+
+                <div class="logo-mark">
+                    Sメ
+                </div>
+
+            </div>
+
+
+            <div class="brand-small">
+                GAMING CONTROL SYSTEM
+            </div>
+
+
+            <h1>
+                Sメ
+                <span>PANEL</span>
+            </h1>
+
+
+            <p>
+                PREMIUM GAMING
+                <br>
+                CONTROL CENTER
+            </p>
+
+
+            <div class="brand-line">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- LOGIN CARD -->
+
+        <section class="login-card">
+
+
+            <div class="card-header">
+
+                <div class="shield-icon">
+                    ◆
+                </div>
+
+                <div>
+
+                    <h2>
+                        ACCESS PANEL
+                    </h2>
+
+                    <p>
+                        Authorized users only
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="secure-status">
+
+                <span class="online-dot"></span>
+
+                SECURE CONNECTION
+
+            </div>
+
+
+            <!-- USERNAME -->
+
+            <div class="input-group">
+
+                <label>
+                    USERNAME
+                </label>
+
+                <div class="input-box">
+
+                    <span>
+                        ◉
+                    </span>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter username"
+                        autocomplete="username"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label>
+                    PASSWORD
+                </label>
+
+                <div class="input-box">
+
+                    <span>
+                        ◆
+                    </span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                    >
+
+                    <button
+                        type="button"
+                        class="eye-button"
+                        onclick="togglePassword()"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                class="access-button"
+                onclick="login()"
+            >
+
+                <span>
+                    ACCESS PANEL
+                </span>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="loginMessage"
+                class="login-message"
+            ></div>
+
+
+            <!-- FOOTER -->
+
+            <div class="login-security">
+
+                <span>
+                    🛡 PROTECTED SESSION
+                </span>
+
+                <span>
+                    V1.0
+                </span>
+
+            </div>
+
+
+            <div class="creator">
+
+                <small>
+                    CREATED BY
+                </small>
+
+                <strong>
+                    @be.like_sshil
+                </strong>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- BOTTOM -->
+
+    <footer class="login-footer">
+
+        <span>
+            Sメ PANEL
+        </span>
+
+        <span>
+            ● READY
+        </span>
+
+        <span>
+            GAMING SYSTEM
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
