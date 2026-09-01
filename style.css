@@ -2704,3 +2704,279 @@ body {
 
     letter-spacing: 1.5px;
 }
+/* ==========================================
+   Sメ PANEL — SENSITIVITY
+========================================== */
+
+.sensitivity-page {
+
+    width: min(850px, 100%);
+
+    min-height:
+        calc(100vh - 80px);
+
+    margin: auto;
+
+    padding:
+        40px 20px 120px;
+}
+
+
+/* SETTINGS CARD */
+
+.settings-card {
+
+    padding: 22px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,18,20,0.97),
+            rgba(7,7,8,0.98)
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.5);
+}
+
+
+/* SETTING ROW */
+
+.setting-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 18px;
+}
+
+.setting-row:first-child {
+
+    margin-top: 0;
+}
+
+.setting-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.setting-info strong {
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+.setting-info span {
+
+    color: #555860;
+
+    font-size: 7px;
+}
+
+
+/* VALUE */
+
+.setting-value {
+
+    min-width: 43px;
+
+    padding: 7px 9px;
+
+    border:
+        1px solid
+        rgba(255,23,56,0.25);
+
+    border-radius: 7px;
+
+    background:
+        rgba(255,23,56,0.06);
+
+    color: var(--red);
+
+    text-align: center;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+
+/* RANGE */
+
+.settings-card input[type="range"] {
+
+    width: 100%;
+
+    height: 4px;
+
+    margin-top: 11px;
+
+    appearance: none;
+
+    border-radius: 10px;
+
+    background: #242428;
+
+    outline: none;
+}
+
+.settings-card input[type="range"]::-webkit-slider-thumb {
+
+    appearance: none;
+
+    width: 15px;
+
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    border: 2px solid #090909;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,23,56,0.55);
+
+    cursor: pointer;
+}
+
+.settings-card input[type="range"]::-moz-range-thumb {
+
+    width: 15px;
+
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    border: 2px solid #090909;
+
+    cursor: pointer;
+}
+
+
+/* ACTIONS */
+
+.settings-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 110px;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.settings-actions button {
+
+    min-height: 45px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.save-settings {
+
+    border: none;
+
+    background: var(--red);
+
+    color: white;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,23,56,0.15);
+}
+
+.save-settings:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 30px
+        rgba(255,23,56,0.3);
+}
+
+.reset-settings {
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    color: #777a82;
+}
+
+
+/* SAVE MESSAGE */
+
+.save-message {
+
+    margin-top: 13px;
+
+    text-align: center;
+
+    color: #555860;
+
+    font-size: 7px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .sensitivity-page {
+
+        padding:
+            30px 15px 120px;
+    }
+
+    .settings-card {
+
+        padding: 17px;
+    }
+
+    .settings-actions {
+
+        grid-template-columns: 1fr;
+    }
+
+}
