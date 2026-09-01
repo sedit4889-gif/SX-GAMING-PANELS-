@@ -427,3 +427,47 @@ document.addEventListener(
 
     }
 );
+/* ==========================================
+   Sメ PANEL — PAGE PROTECTION
+========================================== */
+
+function checkPanelAccess() {
+
+    const access =
+        sessionStorage.getItem("sPanelAccess");
+
+    const currentPage =
+        window.location.pathname.split("/").pop();
+
+    const protectedPages = [
+        "sensitivity.html",
+        "features.html",
+        "profile.html"
+    ];
+
+    if (
+        protectedPages.includes(currentPage) &&
+        access !== "granted"
+    ) {
+
+        window.location.replace(
+            "index.html"
+        );
+
+        return false;
+    }
+
+    return true;
+}
+
+
+/* RUN PROTECTION */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        checkPanelAccess();
+
+    }
+);
