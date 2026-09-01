@@ -348,3 +348,46 @@ document.addEventListener(
 
     }
 );
+/* ==========================================
+   FEATURE INFORMATION
+========================================== */
+
+function featureInfo(feature) {
+
+    const messages = {
+
+        "UMP RECOIL":
+            "UMP RECOIL\n\nPractice controlled recoil management and comfortable sensitivity.",
+
+        "HEADSHOT":
+            "HEADSHOT\n\nUse sensitivity as a starting point and practice your aim in training mode.",
+
+        "AIM FOV":
+            "AIM FOV\n\nFOV changes can affect how targets appear on screen. Choose a comfortable setting.",
+
+        "DRAG HEADSHOT":
+            "DRAG HEADSHOT\n\nPractice smooth upward drag movement and consistent timing.",
+
+        "ONE TAP":
+            "ONE TAP\n\nPractice short, controlled aim movements for more consistent shots.",
+
+        "RED NUMBER":
+            "RED NUMBER\n\nTraining and display information for your gaming setup.",
+
+        "STABLE PIN":
+            "STABLE PIN\n\nPractice stable positioning and controlled aim movement."
+
+    };
+
+
+    const message =
+        messages[feature] ||
+        "Feature information unavailable.";
+
+
+    alert(
+        "Sメ PANEL\n\n" +
+        message
+    );
+
+}
