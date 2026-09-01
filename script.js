@@ -349,10 +349,19 @@ document.addEventListener(
     }
 );
 /* ==========================================
-   FEATURE INFORMATION
+   Sメ PANEL — FEATURE INTERACTION
 ========================================== */
 
 function featureInfo(feature) {
+
+    const card =
+        event.currentTarget;
+
+    if (card) {
+
+        card.classList.toggle("active");
+
+    }
 
     const messages = {
 
@@ -360,19 +369,19 @@ function featureInfo(feature) {
             "UMP RECOIL\n\nPractice controlled recoil management and comfortable sensitivity.",
 
         "HEADSHOT":
-            "HEADSHOT\n\nUse sensitivity as a starting point and practice your aim in training mode.",
+            "HEADSHOT\n\nUse your sensitivity as a starting point and practice in training mode.",
 
         "AIM FOV":
-            "AIM FOV\n\nFOV changes can affect how targets appear on screen. Choose a comfortable setting.",
+            "AIM FOV\n\nChoose a comfortable field of view for your display.",
 
         "DRAG HEADSHOT":
             "DRAG HEADSHOT\n\nPractice smooth upward drag movement and consistent timing.",
 
         "ONE TAP":
-            "ONE TAP\n\nPractice short, controlled aim movements for more consistent shots.",
+            "ONE TAP\n\nPractice short and controlled aim movements.",
 
         "RED NUMBER":
-            "RED NUMBER\n\nTraining and display information for your gaming setup.",
+            "RED NUMBER\n\nTraining and display information for your setup.",
 
         "STABLE PIN":
             "STABLE PIN\n\nPractice stable positioning and controlled aim movement."
@@ -380,15 +389,13 @@ function featureInfo(feature) {
     };
 
 
-    const message =
-        messages[feature] ||
-        "Feature information unavailable.";
-
-
     alert(
         "Sメ PANEL\n\n" +
-        message
+        (messages[feature] ||
+        "Feature information unavailable.")
     );
+
+}
 
 }
 /* ==========================================
