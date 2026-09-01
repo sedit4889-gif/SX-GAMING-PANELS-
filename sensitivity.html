@@ -1,1 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sメ PANEL — Sensitivity</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="grid-background"></div>
+
+    <div class="red-glow glow-one"></div>
+    <div class="red-glow glow-two"></div>
+
+
+    <header class="login-top">
+
+        <div class="mini-logo">
+            Sメ PANEL
+        </div>
+
+        <div class="system-status">
+
+            <span class="online-dot"></span>
+
+            SYSTEM ONLINE
+
+        </div>
+
+    </header>
+
+
+    <main class="panel-page">
+
+        <div class="page-heading">
+
+            <span>
+                Sメ CONTROL
+            </span>
+
+            <h1>
+                SENSITIVITY
+            </h1>
+
+            <p>
+                Configure your preferred control values
+            </p>
+
+        </div>
+
+
+        <section class="sensitivity-card">
+
+            <div class="setting">
+
+                <div class="setting-top">
+
+                    <span>
+                        GENERAL
+                    </span>
+
+                    <strong id="generalValue">
+                        95
+                    </strong>
+
+                </div>
+
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="95"
+                    id="general"
+                    oninput="updateValue('general')"
+                >
+
+            </div>
+
+
+            <div class="setting">
+
+                <div class="setting-top">
+
+                    <span>
+                        RED DOT
+                    </span>
+
+                    <strong id="redDotValue">
+                        90
+                    </strong>
+
+                </div>
+
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="90"
+                    id="redDot"
+                    oninput="updateValue('redDot')"
+                >
+
+            </div>
+
+
+            <div class="setting">
+
+                <div class="setting-top">
+
+                    <span>
+                        2× SCOPE
+                    </span>
+
+                    <strong id="scope2Value">
+                        85
+                    </strong>
+
+                </div>
+
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="85"
+                    id="scope2"
+                    oninput="updateValue('scope2')"
+                >
+
+            </div>
+
+
+            <div class="setting">
+
+                <div class="setting-top">
+
+                    <span>
+                        4× SCOPE
+                    </span>
+
+                    <strong id="scope4Value">
+                        80
+                    </strong>
+
+                </div>
+
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="80"
+                    id="scope4"
+                    oninput="updateValue('scope4')"
+                >
+
+            </div>
+
+
+            <div class="setting">
+
+                <div class="setting-top">
+
+                    <span>
+                        SNIPER
+                    </span>
+
+                    <strong id="sniperValue">
+                        70
+                    </strong>
+
+                </div>
+
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="70"
+                    id="sniper"
+                    oninput="updateValue('sniper')"
+                >
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    class="secondary-button"
+                    onclick="resetSensitivity()"
+                >
+                    RESET
+                </button>
+
+                <button
+                    class="access-button"
+                    onclick="saveSensitivity()"
+                >
+                    SAVE SETTINGS
+                </button>
+
+            </div>
+
+
+            <div
+                id="saveMessage"
+                class="login-message"
+            ></div>
+
+        </section>
+
+
+        <div class="creator">
+
+            <small>
+                CREATED BY
+            </small>
+
+            <strong>
+                @be.like_sshil
+            </strong>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
