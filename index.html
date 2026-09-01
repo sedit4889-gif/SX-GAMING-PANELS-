@@ -5,40 +5,16 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Sメ PANEL — Login</title>
 
     <link rel="stylesheet" href="style.css">
 
 </head>
-<!-- ACCESS LOADER -->
 
-<div id="accessLoader" class="access-loader">
-
-    <div class="loader-logo">
-        Sメ
-    </div>
-
-    <div class="loader-title">
-        ACCESSING Sメ PANEL
-    </div>
-
-    <div class="loader-bar">
-        <span></span>
-    </div>
-
-    <div class="loader-status">
-        AUTHENTICATING...
-    </div>
-
-</div>
 <body class="login-page">
-
-    <!-- BACKGROUND EFFECTS -->
 
     <div class="red-glow glow-one"></div>
     <div class="red-glow glow-two"></div>
@@ -48,7 +24,7 @@
     <div class="scan-effect"></div>
 
 
-    <!-- TOP BRAND -->
+    <!-- TOP BAR -->
 
     <header class="login-top">
 
@@ -67,12 +43,10 @@
     </header>
 
 
-    <!-- LOGIN AREA -->
+    <!-- LOGIN -->
 
     <main class="login-container">
 
-
-        <!-- BRAND SIDE -->
 
         <section class="brand-area">
 
@@ -84,24 +58,19 @@
 
             </div>
 
-
             <div class="brand-small">
                 GAMING CONTROL SYSTEM
             </div>
 
-
             <h1>
-                Sメ
-                <span>PANEL</span>
+                Sメ <span>PANEL</span>
             </h1>
-
 
             <p>
                 PREMIUM GAMING
                 <br>
                 CONTROL CENTER
             </p>
-
 
             <div class="brand-line">
 
@@ -114,11 +83,9 @@
         </section>
 
 
-
         <!-- LOGIN CARD -->
 
         <section class="login-card">
-
 
             <div class="card-header">
 
@@ -141,8 +108,6 @@
             </div>
 
 
-            <!-- STATUS -->
-
             <div class="secure-status">
 
                 <span class="online-dot"></span>
@@ -162,15 +127,12 @@
 
                 <div class="input-box">
 
-                    <span>
-                        ◉
-                    </span>
+                    <span>◉</span>
 
                     <input
                         type="text"
                         id="username"
                         placeholder="Enter username"
-                        autocomplete="username"
                     >
 
                 </div>
@@ -188,15 +150,12 @@
 
                 <div class="input-box">
 
-                    <span>
-                        ◆
-                    </span>
+                    <span>◆</span>
 
                     <input
                         type="password"
                         id="password"
                         placeholder="Enter password"
-                        autocomplete="current-password"
                     >
 
                     <button
@@ -212,9 +171,10 @@
             </div>
 
 
-            <!-- LOGIN BUTTON -->
+            <!-- LOGIN -->
 
             <button
+                type="button"
                 class="access-button"
                 onclick="login()"
             >
@@ -230,15 +190,11 @@
             </button>
 
 
-            <!-- MESSAGE -->
-
             <div
                 id="loginMessage"
                 class="login-message"
             ></div>
 
-
-            <!-- FOOTER -->
 
             <div class="login-security">
 
@@ -260,18 +216,43 @@
                 </small>
 
                 <strong>
-                    @be.like_sahil
+                    @be.like_sshil
                 </strong>
 
             </div>
-
 
         </section>
 
     </main>
 
 
-    <!-- BOTTOM -->
+    <!-- ACCESS LOADER -->
+
+    <div
+        id="accessLoader"
+        class="access-loader"
+    >
+
+        <div class="loader-logo">
+            Sメ
+        </div>
+
+        <div class="loader-title">
+            ACCESSING Sメ PANEL
+        </div>
+
+        <div class="loader-bar">
+            <span></span>
+        </div>
+
+        <div class="loader-status">
+            AUTHENTICATING...
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
 
     <footer class="login-footer">
 
@@ -289,6 +270,8 @@
 
     </footer>
 
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
