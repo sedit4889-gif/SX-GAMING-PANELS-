@@ -2448,3 +2448,100 @@ body {
     }
 
 }
+/* ==========================================
+   Sメ PANEL — FEATURE STATUS
+========================================== */
+
+.module-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 16px;
+
+    padding: 8px 11px;
+
+    border: 1px solid
+        rgba(72,255,155,0.10);
+
+    border-radius: 7px;
+
+    background:
+        rgba(72,255,155,0.025);
+
+    color: #646870;
+
+    font-size: 7px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* ACTIVE CARD */
+
+.feature-card.active {
+
+    border-color:
+        rgba(255,23,56,0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,23,56,0.10),
+            rgba(8,8,9,0.98)
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(255,23,56,0.08);
+}
+
+
+/* ACTIVE ICON */
+
+.feature-card.active .feature-icon {
+
+    background:
+        rgba(255,23,56,0.15);
+
+    border-color:
+        rgba(255,23,56,0.55);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,23,56,0.15);
+}
+
+
+/* ACTIVE TEXT */
+
+.feature-card.active .feature-text strong {
+
+    color: white;
+}
+
+
+/* CLICK EFFECT */
+
+.feature-card:active {
+
+    transform:
+        scale(0.98);
+}
+
+
+/* MOBILE STATUS */
+
+@media (max-width: 600px) {
+
+    .module-status {
+
+        margin-bottom: 13px;
+    }
+
+}
