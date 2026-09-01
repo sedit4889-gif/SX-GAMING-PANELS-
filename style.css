@@ -2545,3 +2545,162 @@ body {
     }
 
 }
+/* ==========================================
+   Sメ PANEL — ACCESS LOADER
+========================================== */
+
+.access-loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,23,56,0.12),
+            #050505 55%
+        );
+
+    backdrop-filter: blur(12px);
+}
+
+.access-loader.show {
+
+    display: flex;
+
+    animation:
+        loaderFade 0.25s ease;
+}
+
+@keyframes loaderFade {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.loader-logo {
+
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--red);
+
+    border-radius: 17px;
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 35px
+        rgba(255,23,56,0.3);
+
+    animation:
+        logoPulse 1s infinite alternate;
+}
+
+@keyframes logoPulse {
+
+    from {
+        transform: scale(1);
+        box-shadow:
+            0 0 20px
+            rgba(255,23,56,0.2);
+    }
+
+    to {
+        transform: scale(1.06);
+        box-shadow:
+            0 0 45px
+            rgba(255,23,56,0.5);
+    }
+}
+
+.loader-title {
+
+    margin-top: 25px;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.loader-bar {
+
+    width: min(260px, 70%);
+
+    height: 3px;
+
+    margin-top: 18px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #222226;
+}
+
+.loader-bar span {
+
+    display: block;
+
+    width: 0%;
+
+    height: 100%;
+
+    background: var(--red);
+
+    box-shadow:
+        0 0 15px
+        rgba(255,23,56,0.8);
+
+    animation:
+        loadingBar 1.2s ease forwards;
+}
+
+@keyframes loadingBar {
+
+    to {
+        width: 100%;
+    }
+}
+
+.loader-status {
+
+    margin-top: 12px;
+
+    color: #646870;
+
+    font-size: 7px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
