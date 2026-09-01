@@ -87,12 +87,19 @@ function login() {
         );
 
 
-        setTimeout(function() {
+        const loader =
+    document.getElementById("accessLoader");
 
-            window.location.href =
-                "sensitivity.html";
+if (loader) {
+    loader.classList.add("show");
+}
 
-        }, 600);
+setTimeout(function() {
+
+    window.location.href =
+        "sensitivity.html";
+
+}, 1400);
 
 
     } else {
